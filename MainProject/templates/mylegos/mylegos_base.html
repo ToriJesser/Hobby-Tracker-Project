@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+{% load staticfiles %}
+{% block appcontent %}
+    <section>
+        <div class="flex-container wrapper">
+            <h5>My Legos</h5>
+            <hr />
+            <a class= 'tabNav' href="{% url 'mylegos' %}">My Legos Home Page</a>
+            <a class= 'tabNav'  href="{% url 'listLegos' %}">Lego Set Collection</a>
+        </div>
+    </section>
+    {% block templatecontent %}{% endblock %} <!-- section that all the template specific content will render within -->
+{% endblock %}

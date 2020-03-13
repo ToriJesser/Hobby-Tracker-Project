@@ -1,0 +1,28 @@
+{% extends 'mylegos/mylegos_base.html' %}
+{% load staticfiles %}
+{% block templatecontent %}
+<section >
+    <div class="flex-container" id="jerseyCollectionPage">
+        <table class="table-striped">
+            <tr>
+                <th class="col-md">Set Name</th>
+                <th class="col-md">Theme</th>
+                <th class="col-md">Release Date</th>
+                <th class="col-md">Number of Parts Needed</th>
+                <th class="col-md">Price</th>
+            </tr>
+            {% for legoset in legosets %}     <!-- creates a new row for each set in the collection -->
+                <tr>
+                    <td class="col-md">{{legoset.set_name}}</td>
+                    <td class="col-md">{{legoset.theme}}</td>
+                    <td class="col-md">{{legoset.release_date}}</td>
+                    <td class="col-md">{{legoset.num_parts_need}}</td>
+                    <td class="col-md">{{legoset.price}}</td>
+                    <td class="col-md"><a href="{{legoset.pk}}/Details"><button class="primary-light-button">Details</button></a></td>    <!-- creates a link for that specific set -->
+                </tr>
+            {% endfor %}
+        </table>
+        <button class="primary-bright-button" type="button" onclick=" location.href='{% url 'createSet' %}'">Add to Collection</button>
+    </div>
+</section>
+{% endblock %}

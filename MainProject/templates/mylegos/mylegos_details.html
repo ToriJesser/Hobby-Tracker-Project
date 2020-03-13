@@ -1,0 +1,35 @@
+{% extends 'mylegos/mylegos_base.html' %}
+{% load staticfiles %}
+{% block templatecontent %}
+<section>
+    <div class="flex-container footy">
+        <table>
+            <tr>
+                <th>Set Name</th>
+                <td>{{Lego_Set.set_name}}</td>
+            </tr>
+            <tr>
+                <th>Theme</th>
+                <td>{{Lego_Set.theme}}</td>
+            </tr>
+            <tr>
+                <th>Release Date</th>
+                <td>{{Lego_Set.release_date}}</td>
+            </tr>
+            <tr>
+                <th>Number of Parts Needed</th>
+                <td>{{Lego_Set.num_parts_need}}</td>
+            </tr>
+            <tr>
+                <th>Price</th>
+                <td>{{Lego_Set.price}}</td>
+            </tr>
+        </table>
+
+        <hr />
+        <button class="primary-bright-button" type="button" onclick=" location.href='{% url 'listLegos' %}'">Back to Collection</button>
+        <button class="secondary-bright-button" type="button" onclick=" location.href='{% url  'editSet' Lego_Set.pk %}'">Edit Set</button>
+        <button class="delete-bright-button" type="button" onclick=" location.href='{% url 'delete' pk=Lego_Set.pk %}'">DELETE</button>
+    </div>
+</section>
+{% endblock %}

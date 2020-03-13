@@ -1,0 +1,19 @@
+{% extends 'mylegos/mylegos_base.html' %}
+{% load staticfiles %}
+{% block templatecontent %}
+
+<section>
+    <div class="flex-container">
+        <form method="POST">
+            {% csrf_token %}
+            <table>
+                {{ form.as_table }} <!-- this only renders the td tags, still need the   table tags -->
+            </table>
+            <button class="primary-bright-button" type="submit" >Save Changes</button>
+
+        </form>
+        <button class="primary-bright-button" type="button" onclick=" location.href='{% url 'listLegos' %}'">Back to Collection</button>
+    </div>
+</section>
+
+{% endblock %}
